@@ -27,8 +27,7 @@ CVD_no_china = CVD.loc[~(CVD['Country'].isin(["China", "World"]))]
 
 # Group them by location and date, select only total cases and deaths for closer observation
 # Reset index because groupby by default makes grouped columns indices
-CVD_no_china = pd.DataFrame(
-    CVD_no_china.groupby(['Country', 'Date'])['Total Cases', 'Total Deaths'].sum()).reset_index()
+CVD_no_china = pd.DataFrame(CVD_no_china.groupby(['Country', 'Date'])['Total Cases', 'Total Deaths'].sum()).reset_index()
 # print(CVD_no_china)
 
 # Sort values by each country and by date - descending. Easy to interpret plots
@@ -78,9 +77,9 @@ def plot_exponential_fit_data(d_df, title, delta):
     plt.show()
 
 
-CVD_USA = CVD_no_china[CVD_no_china['Country'] == 'United States']
-CVD_Italy = CVD_no_china[CVD_no_china['Country'] == 'Italy']
-CVD_South_Korea = CVD_no_china[CVD_no_china['Country'] == 'South Korea']
+# CVD_USA = CVD_no_china[CVD_no_china['Country'] == 'United States']
+# CVD_Italy = CVD_no_china[CVD_no_china['Country'] == 'Italy']
+# CVD_South_Korea = CVD_no_china[CVD_no_china['Country'] == 'South Korea']
 CVD_BD = CVD_no_china[CVD_no_china['Country'] == 'Bangladesh']
 
 d_df = CVD_BD.copy()
